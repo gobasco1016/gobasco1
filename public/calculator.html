@@ -71,7 +71,8 @@
   <input type="range" min="0" max="20" value="0" class="slider" id="margins">
   <p>Gobasco Margin (Packet): <span id="marginv"></span></p>
 
-  <h2>SP (Nepal) : <span id="totalv"></span></h2>
+  <h2>SP : <span id="totalv"></span></h2>
+  <h2>SP : <span id="totalinr"></span></h2>
 </div>
 
 <script>
@@ -108,50 +109,60 @@ var output8 = document.getElementById("marginv");
 output8.innerHTML =slider8.value;
 
 var outputtotal = document.getElementById("totalv");
-outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/50) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/50) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+var outputtotalinr = document.getElementById("totalinr");
+outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/50) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 
 
 slider1.oninput = function() {
   output1.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(this.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
-
+  outputtotal.innerHTML = (((Number(this.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(this.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider2.oninput = function() {
   output2.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(this.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(this.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(this.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider3.oninput = function() {
   output3.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(this.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(this.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(this.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider4.oninput = function() {
   output4.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(this.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(this.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+   outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(this.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider5.oninput = function() {
   output5.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(this.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(this.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(this.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider6.oninput = function() {
   output6.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(this.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(this.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+   outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(this.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 
+}
 
 slider7.oninput = function() {
   output7.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(this.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(this.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(this.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(this.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(this.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(this.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
 }
 
 slider8.oninput = function() {
   output8.innerHTML = this.value;
-  outputtotal.innerHTML = ((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(this.value)/50)).toFixed(1)*1.6
+  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(this.value)/50))*1.6).toFixed(1) + " NC"
+  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(this.value)/50))).toFixed(1) + " INR"
 }
-}
+
 
 
 </script>
