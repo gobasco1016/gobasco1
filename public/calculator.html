@@ -4,6 +4,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 .slidecontainer {
     width: 100%;
     float: none;
@@ -51,11 +99,33 @@
 }
 .slider ui-shadow-inset ui-body-inherit ui-corner-all ui-slider-input {display:none;}
 .p { padding: 0px;}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #010101;
+   color: white;
+   text-align: center;
+   margin-bottom: 0;
+}
 </style>
 </head>
 <body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">HOME</a>
+  <a href="rates.html">Get Quotes</a>
+  <a href="demand.html">Sell</a>
+  <a href="supply.html">Buy</a>
+  <a href="calculator.html">Calculator</a>
+</div>
 
-<h1>Rate Fix</h1>
+<div id="main" style="background:#00aa00;">
+  <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; GOBASCO </span>
+</div>
+
+<h2>Rate Fix</h2>
 
 <div class="slidecontainer">
   <p class="alignleft">CP(INR): <span id="cpv"></span></p>
@@ -66,7 +136,7 @@
   <p class="alignright"><input type="range" min="45" max="65" value="55" class="slider" id="bhartis"></p>
   <div style="clear: both;"></div>
 
-  <p class="alignleft">Loading(Pack): <span id="palledariv"></span></p>
+  <p class="alignleft">Load(Pack): <span id="palledariv"></span></p>
   <p class="alignright"><input type="range" min="0" max="10" value="7.5" class="slider" id="palledaris" step="0.5"></p>
   <div style="clear: both;"></div>
 
@@ -90,10 +160,23 @@
   <p class="alignright"><input type="range" min="0" max="20" value="0" class="slider" id="margins"></p>
   <div style="clear: both;"></div>
 
-  <h2>SP : <span id="totalv"></span></h2>
-  <h2>SP : <span id="totalinr"></span></h2>
+  <p class="footer">SP : <span id="totalv"></span>
+  <br>SP : <span id="totalinr"></span></p>
 </div>
 
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+</script>
 <script>
 var slider1 = document.getElementById("cps");
 var output1 = document.getElementById("cpv");
