@@ -2,189 +2,93 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-.slidecontainer {
-    width: 100%;
-    float: none;
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
 }
 
-.slider {
-    -webkit-appearance: none;
-    
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-.slider:hover {
-    opacity: 1;
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 23px;
-    height: 24px;
-    border: 0;
-    background: url('logo.png');
-    cursor: pointer;
+.sidenav a:hover {
+    color: #f1f1f1;
 }
 
-.slider::-moz-range-thumb {
-    width: 23px;
-    height: 24px;
-    border: 0;
-    background: url('logo.png');
-    cursor: pointer;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
-.alignleft {
-  float: left;
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
 }
-.alignright {
-  float: right;    width: 60%;
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
-.slider ui-shadow-inset ui-body-inherit ui-corner-all ui-slider-input {display:none;}
-.p { padding: 0px;}
 </style>
 </head>
 <body>
 
-<h1>Rate Fix</h1>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">HOME</a>
+  <a href="rates.html">Get Quotes</a>
+  <a href="demand.html">Sell</a>
+  <a href="supply.html">Buy</a>
+  <a href="calculator.html">Calculator</a>
+</div>
 
-<div class="slidecontainer">
-  <p class="alignleft">CP: <span id="cpv"></span></p>
-  <p class="alignright"><input type="range" min="300" max="600" value="390" class="slider" id="cps" data-show-value="true"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Bharti/Wt (Kg): <span id="bhartiv"></span></p>
-  <p class="alignright"><input type="range" min="45" max="65" value="55" class="slider" id="bhartis"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Palledari (Packet): <span id="palledariv"></span></p>
-  <p class="alignright"><input type="range" min="0" max="10" value="7.5" class="slider" id="palledaris" step="0.5"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Mandi (Packet): <span id="mandiv"></span></p>
-  <p class="alignright"><input type="range" min="0" max="50" value="10" class="slider" id="mandis"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Bhada1 (Quintal): <span id="bhada1v"></span></p>
-  <p class="alignright"><input type="range" min="10" max="250" value="100" class="slider" id="bhada1s"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Custom (Packet): <span id="customv"></span></p>
-  <p class="alignright"><input type="range" min="0" max="100" value="50" class="slider" id="customs"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Bhada2 (Quintal): <span id="bhada2v"></span></p>
-  <p class="alignright"><input type="range" min="100" max="450" value="225" class="slider" id="bhada2s"></p>
-  <div style="clear: both;"></div>
-
-  <p class="alignleft">Gobasco Margin (Packet): <span id="marginv"></span></p>
-  <p class="alignright"><input type="range" min="0" max="20" value="0" class="slider" id="margins"></p>
-  <div style="clear: both;"></div>
-
-  <h2>SP : <span id="totalv"></span></h2>
-  <h2>SP : <span id="totalinr"></span></h2>
+<div id="main" style="background:#00aa00;">
+  <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; GOBASCO </span>
+</div>
+<div style="background:#444; color:#efefef;"><br>
+<img src= "logo.png"></img>
+<h2>CONTACT US</h2><br><br>
+<h3>For any queries, feel free to reach out to us<br>
+We are hiring !! Mail us at hr@gobasco.com </h3><br><br>
+<h2>OFFICES IN DELHI & LUCKNOW
+INFO@GOBASCO.COM</h2>
 </div>
 
 <script>
-var slider1 = document.getElementById("cps");
-var output1 = document.getElementById("cpv");
-output1.innerHTML = slider1.value;
-
-var slider2 = document.getElementById("palledaris");
-var output2 = document.getElementById("palledariv");
-output2.innerHTML = slider2.value;
-
-var slider3 = document.getElementById("mandis");
-var output3 = document.getElementById("mandiv");
-output3.innerHTML = slider3.value;
-
-var slider4 = document.getElementById("bhada1s");
-var output4 = document.getElementById("bhada1v");
-output4.innerHTML = slider4.value;
-
-var slider5 = document.getElementById("customs");
-var output5 = document.getElementById("customv");
-output5.innerHTML = slider5.value;
-
-var slider6 = document.getElementById("bhada2s");
-var output6 = document.getElementById("bhada2v");
-output6.innerHTML =slider6.value;
-
-var slider7 = document.getElementById("bhartis");
-var output7 = document.getElementById("bhartiv");
-output7.innerHTML =slider7.value;
-
-var slider8 = document.getElementById("margins");
-var output8 = document.getElementById("marginv");
-output8.innerHTML =slider8.value;
-
-var outputtotal = document.getElementById("totalv");
-outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/50) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-var outputtotalinr = document.getElementById("totalinr");
-outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/50) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-
-
-slider1.oninput = function() {
-  output1.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(this.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(this.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(this.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(this.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
 }
-
-slider3.oninput = function() {
-  output3.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(this.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(this.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-}
-
-slider4.oninput = function() {
-  output4.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(this.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-   outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(this.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-}
-
-slider5.oninput = function() {
-  output5.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(this.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(this.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-}
-
-slider6.oninput = function() {
-  output6.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(this.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-   outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(this.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-
-}
-
-slider7.oninput = function() {
-  output7.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(this.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(this.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(this.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(this.value)) + (Number(slider6.value)/100) + (Number(slider8.value)/50))).toFixed(1) + " INR"
-}
-
-slider8.oninput = function() {
-  output8.innerHTML = this.value;
-  outputtotal.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(this.value)/50))*1.6).toFixed(1) + " NC"
-  outputtotalinr.innerHTML = (((Number(slider1.value)/Number(slider7.value)) + (Number(slider2.value)/50) + (Number(slider3.value)/50) + (Number(slider4.value)/100) + (Number(slider5.value)/Number(slider7.value)) + (Number(slider6.value)/100) + (Number(this.value)/50))).toFixed(1) + " INR"
-}
-
-
-
 </script>
-
+     
 </body>
-</html>
+</html> 
